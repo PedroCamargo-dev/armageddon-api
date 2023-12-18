@@ -25,7 +25,7 @@ export class SystemGateway implements OnGatewayConnection, OnGatewayDisconnect {
 
   @SubscribeMessage('osInfo')
   async getOsInfo() {
-    return this.server.emit('osInfo', await this.systemService.getOsInfo());
+    this.server.emit('osInfo', await this.systemService.getOsInfo());
   }
 
   @SubscribeMessage('CPU')
