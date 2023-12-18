@@ -42,4 +42,9 @@ export class SystemService {
     }
     return memFormated;
   }
+
+  async getFsSize() {
+    const diskIO = await si.fsSize();
+    return diskIO;
+  }
 }

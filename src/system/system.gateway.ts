@@ -56,4 +56,9 @@ export class SystemGateway implements OnGatewayConnection, OnGatewayDisconnect {
       this.server.emit('Memory', await this.systemService.getMemory());
     }, 1000);
   }
+
+  @SubscribeMessage('FsSize')
+  async getFsSize() {
+    this.server.emit('getFsSize', await this.systemService.getFsSize());
+  }
 }
