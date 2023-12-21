@@ -32,7 +32,7 @@ export class SystemGateway implements OnGatewayConnection, OnGatewayDisconnect {
   async getCPU() {
     setInterval(async () => {
       this.server.emit('CPU', await this.systemService.getCPU());
-    }, 5000);
+    }, 10000);
   }
 
   @SubscribeMessage('Network')
@@ -47,14 +47,14 @@ export class SystemGateway implements OnGatewayConnection, OnGatewayDisconnect {
         'NetworkStats',
         await this.systemService.getNetworkStats(),
       );
-    }, 1000);
+    }, 10000);
   }
 
   @SubscribeMessage('Memory')
   async getMemory() {
     setInterval(async () => {
       this.server.emit('Memory', await this.systemService.getMemory());
-    }, 1000);
+    }, 10000);
   }
 
   @SubscribeMessage('FsSize')
