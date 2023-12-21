@@ -22,7 +22,7 @@ export class SystemService {
 
   async getNetworkStats() {
     const network = await si.networkStats();
-    return network;
+    return network[0];
   }
 
   async getMemory() {
